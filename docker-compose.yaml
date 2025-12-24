@@ -10,7 +10,7 @@ services:
     environment:
       OTEL_RESOURCE_ATTRIBUTES: "service.name=grafana"
     ports:
-      - 3000:3000
+      - 3003:3003
     depends_on:
       - prometheus
       - tempo
@@ -54,8 +54,8 @@ services:
   pyroscope:
     container_name: pyroscope
     image: pyroscope/pyroscope:latest
-    #ports:
-    # - 4040:4040
+    ports:
+     - 4040:4040
     command:
       - "server"
     volumes:
@@ -72,4 +72,5 @@ services:
       - prometheus
       - tempo
       - loki
+
 
