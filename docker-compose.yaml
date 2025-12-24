@@ -46,8 +46,8 @@ services:
     image: grafana/loki:latest
     volumes:
       - ./loki/loki.yaml:/etc/loki/loki.yaml
-        #ports:
-        #- 3100:3100
+    ports:
+      - 3100:3100
     command: 
       - "-config.file=/etc/loki/loki.yaml"
 
@@ -72,5 +72,6 @@ services:
       - prometheus
       - tempo
       - loki
+
 
 
